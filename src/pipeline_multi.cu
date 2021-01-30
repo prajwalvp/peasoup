@@ -157,16 +157,16 @@ public:
       if (args.verbose)
 	       std::cout << "Copying DM trial to device (DM: " << tim.get_dm() << ")"<< std::endl;
 
-      Utils::dump_host_buffer<unsigned int>(tim.get_data(), tim.get_nsamps(), "raw_timeseries_before_baseline_removal_host.dump");
+      //Utils::dump_host_buffer<unsigned int>(tim.get_data(), tim.get_nsamps(), "raw_timeseries_before_baseline_removal_host.dump");
 
       d_tim.copy_from_host(tim);
 
-      Utils::dump_device_buffer<float>(d_tim.get_data(), d_tim.get_nsamps(), "raw_timeseries_before_baseline_removal.dump");
+      //Utils::dump_device_buffer<float>(d_tim.get_data(), d_tim.get_nsamps(), "raw_timeseries_before_baseline_removal.dump");
 
       d_tim.remove_baseline(trials.get_nsamps());
 
 
-      Utils::dump_device_buffer<float>(d_tim.get_data(), d_tim.get_nsamps(), "raw_timeseries_after_baseline_removal.dump");
+      //Utils::dump_device_buffer<float>(d_tim.get_data(), d_tim.get_nsamps(), "raw_timeseries_after_baseline_removal.dump");
 
       
       //timers["rednoise"].start()
@@ -506,7 +506,7 @@ int main(int argc, char **argv)
   dm_cands.cands.resize(new_size);
 
   CandidateFileWriter cand_files(args.outdir);
-  cand_files.write_binary(dm_cands.cands,"candidates.peasoup");
+  //cand_files.write_binary(dm_cands.cands,"candidates.peasoup");
   
   OutputFileWriter stats;
   stats.add_misc_info();
